@@ -108,6 +108,7 @@ Resources:
       InstanceType: t2.micro # Change as needed
       SecurityGroups:
         - !Ref MySecurityGroup
+      AssociatePublicIpAddress: true # Add this line to assign a public IP address to the instance
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
@@ -136,9 +137,9 @@ Resources:
 Mappings:
   RegionMap:
     us-east-1:
-      AMI: ami-0c101f26f147fa7fd # Replace with your AMI ID for the desired region
+      AMI: ami-0c101f26f147fa7fd 
     us-west-2:
-      AMI: ami-0c101f26f147fa7fd # Replace with your AMI ID for the desired region
+      AMI: ami-0c101f26f147fa7fd 
     # Add more regions as needed
 
 Outputs:
