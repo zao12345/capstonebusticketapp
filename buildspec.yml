@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 20  # Change the version to match your Node.js version
+      nodejs: 14  # Change the version to match your Node.js version
     commands:
       - echo "Installing dependencies..."
       - npm install  # Install project dependencies
@@ -15,6 +15,12 @@ phases:
   build:
     commands:
       - echo "No build steps required for a Node.js application."
+
+  post_build:
+    commands:
+      - echo "Deploying the application to EC2 instances..."
+      - scp -r ./ ec2-user@35.175.122.240:/home/ec2-user/
+      - scp -r ./ ec2-user@54.208.111.196:/home/ec2-user/
 
 artifacts:
   files:
