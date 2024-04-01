@@ -16,12 +16,6 @@ phases:
     commands:
       - echo "No build steps required for a Node.js application."
 
-  post_build:
-    commands:
-      - echo "Deploying the application to EC2 instances..."
-      - scp -r ./ ec2-user@35.175.122.240:/home/ec2-user/
-      - scp -r ./ ec2-user@54.208.111.196:/home/ec2-user/
-
 artifacts:
   files:
     - '**/*'  # Include all project files in the build artifact
