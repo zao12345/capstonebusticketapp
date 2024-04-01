@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14  # Change the version to match your Node.js version
+    commands:
+      - echo "Installing dependencies..."
+      - npm install  # Install project dependencies
+
+  pre_build:
+    commands:
+      - echo "Building the application..."
+
+  build:
+    commands:
+      - echo "No build steps required for a Node.js application."
+
+artifacts:
+  files:
+    - '**/*'  # Include all project files in the build artifact
