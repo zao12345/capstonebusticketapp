@@ -110,6 +110,7 @@ Resources:
       InstanceType: t2.micro # Change as needed
       SecurityGroups:
         - !Ref MySecurityGroup
+      KeyName: Zeekey  # Specify the key pair
       AssociatePublicIpAddress: true # Enable auto-assigning public IPv4 addresses
       UserData:
         Fn::Base64: !Sub |
@@ -131,7 +132,7 @@ Resources:
       DesiredCapacity: '2' # Initial number of instances
       Tags:
         - Key: Name
-          Value: MyNodeAppInstance
+          Value: MyNodeInstance
           PropagateAtLaunch: true
       HealthCheckType: EC2
       HealthCheckGracePeriod: '300' # 5 minutes
